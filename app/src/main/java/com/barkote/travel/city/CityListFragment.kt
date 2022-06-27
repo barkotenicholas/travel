@@ -4,16 +4,40 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import com.barkote.travel.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.barkote.travel.databinding.FragmentCityListBinding
 
 
 class CityListFragment : Fragment() {
 
+    private lateinit var binding: FragmentCityListBinding
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val view = inflater.inflate(R.layout.fragment_city_list, container, false)
+       binding = FragmentCityListBinding.inflate(inflater, container, false)
 
-        return view
+        setUpRecyclerView(view)
+
+        return binding.root
     }
+
+    private fun setUpRecyclerView(view: View?) {
+
+        val context = requireContext()
+
+        val adapter  = CityAdapter(context,VacationSpots.cityList!!)
+
+        val layout = LinearLayoutManager(context)
+        layout.orientation = RecyclerView.VERTICAL
+
+        binding.cityRecyclerView.adapter = adapter
+        binding.cityRecyclerView.setHasFixedSize(true)
+        binding.cityRecyclerView.layoutManager = layout
+
+    }
+
+
 }
