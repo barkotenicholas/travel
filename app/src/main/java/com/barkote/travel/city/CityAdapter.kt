@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.barkote.travel.R
+import com.barkote.travel.databinding.GridItemCityBinding
 import com.barkote.travel.databinding.ListItemCityBinding
 
 class CityAdapter(val context:Context , var cityList: ArrayList<City>) : RecyclerView.Adapter<CityAdapter.CityViewHolder>() {
 
-    inner class CityViewHolder(private val binding: ListItemCityBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class CityViewHolder(private val binding: GridItemCityBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
         private var currentPosition = -1
@@ -34,7 +35,7 @@ class CityAdapter(val context:Context , var cityList: ArrayList<City>) : Recycle
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
 
-        val binding  = ListItemCityBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding  = GridItemCityBinding.inflate(LayoutInflater.from(parent.context),parent,false)
 
         return CityViewHolder(binding)
 
