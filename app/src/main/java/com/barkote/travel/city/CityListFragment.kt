@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.barkote.travel.databinding.FragmentCityListBinding
@@ -19,12 +18,12 @@ class CityListFragment : Fragment() {
 
        binding = FragmentCityListBinding.inflate(inflater, container, false)
 
-        setUpRecyclerView(view)
+        setUpRecyclerView()
 
         return binding.root
     }
 
-    private fun setUpRecyclerView(view: View?) {
+    private fun setUpRecyclerView() {
 
         val context = requireContext()
 

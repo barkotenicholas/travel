@@ -21,19 +21,15 @@ class MainActivity : AppCompatActivity() {
         val navHostFrag = supportFragmentManager.findFragmentById(binding.navHostFrag.id) as NavHostFragment
         navController = navHostFrag.navController
 
-        val appBarConfig = AppBarConfiguration(navController.graph,binding.drawer)
+        val topLevelDestinations = setOf(R.id.fragmentCityList,R.id.fragmentFavoriteList)
+
+        val appBarConfig = AppBarConfiguration(topLevelDestinations)
 
         binding.activityMainToolbar.setupWithNavController(navController,appBarConfig)
 
-        binding.navView.setupWithNavController(navController)
+        binding.bottomNavView.setupWithNavController(navController)
 
     }
 
-    override fun onBackPressed() {
-        if(binding.drawer.isOpen){
-            binding.drawer.close()
-        }else{
-            super.onBackPressed()
-        }
-    }
+
 }
