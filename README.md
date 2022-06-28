@@ -5,10 +5,10 @@ This is an app about travel destinations
 ---
 # preview
 
-![alt text](./screenshots/1.jpg.png)
-![alt text](./screenshots/2.jpg.png)
-![alt text](./screenshots/3.jpg.png)
-![alt text](./screenshots/4.jpg.png)
+![alt text](./screenshots/1.jpg)
+![alt text](./screenshots/2.jpg)
+![alt text](./screenshots/3.jpg)
+![alt text](./screenshots/4.jpg)
 ---
 
 ---
