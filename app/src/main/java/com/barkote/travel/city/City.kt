@@ -59,7 +59,7 @@ object VacationSpots {
 
                 val imageId = images[i]
                 val cityName = cityNames[i]
-                val city = City(imageId, cityName, true)
+                val city = City(imageId, cityName, false)
                 field!!.add(city)
             }
 

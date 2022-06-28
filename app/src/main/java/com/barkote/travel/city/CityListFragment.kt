@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.barkote.travel.databinding.FragmentCityListBinding
 
@@ -29,7 +30,7 @@ class CityListFragment : Fragment() {
 
         val adapter  = CityAdapter(context,VacationSpots.cityList!!)
 
-        val layout = GridLayoutManager(context,2)
+        val layout = LinearLayoutManager(context)
         layout.orientation = RecyclerView.VERTICAL
 
         binding.cityRecyclerView.adapter = adapter

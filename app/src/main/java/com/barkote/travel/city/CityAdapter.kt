@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.barkote.travel.R
-import com.barkote.travel.databinding.GridItemCityBinding
 import com.barkote.travel.databinding.ListItemCityBinding
 
 class CityAdapter(val context:Context , var cityList: ArrayList<City>) : RecyclerView.Adapter<CityAdapter.CityViewHolder>() {
 
-    inner class CityViewHolder(private val binding: GridItemCityBinding) : RecyclerView.ViewHolder(binding.root),
+    inner class CityViewHolder(private val binding: ListItemCityBinding) : RecyclerView.ViewHolder(binding.root),
         View.OnClickListener {
 
 
@@ -25,7 +24,7 @@ class CityAdapter(val context:Context , var cityList: ArrayList<City>) : Recycle
         fun bind(city: City, position: Int) {
 
             this.currentPosition = position
-
+            this.currentCity = city
             binding.txvCityName.text = city.name
             binding.imvCity.setImageResource(city.imageId)
 
@@ -43,8 +42,8 @@ class CityAdapter(val context:Context , var cityList: ArrayList<City>) : Recycle
 
         override fun onClick(v: View?) {
             when(v!!.id){
+                R.id.imv_delete -> deleteItem()
                 R.id.imv_favorite -> addFavourite()
-                R.id.imv_favorite -> deleteItem()
             }
         }
 
@@ -55,7 +54,18 @@ class CityAdapter(val context:Context , var cityList: ArrayList<City>) : Recycle
         }
 
         private fun addFavourite() {
-            TODO("Not yet implemented")
+
+            currentCity?.isFavourite = !(currentCity?.isFavourite!!)
+
+            if(currentCity!!.isFavourite){
+                binding.imvFavorite.setImageDrawable(icFavoriteFilledImage)
+                VacationSpots.favoriteCityList.add(currentCity!!)
+            }
+            else{
+                 binding.imvFavorite.setImageDrawable(icFavoriteBorderedImage)
+                 VacationSpots.favoriteCityList.remove(currentCity!!)
+            }
+
         }
     }
 
@@ -63,7 +73,7 @@ class CityAdapter(val context:Context , var cityList: ArrayList<City>) : Recycle
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
 
-        val binding  = GridItemCityBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding  = ListItemCityBinding.inflate(LayoutInflater.from(parent.context),parent,false)
 
         return CityViewHolder(binding)
 
