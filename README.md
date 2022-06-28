@@ -4,28 +4,29 @@ This is an app about travel destinations
 
 ---
 # preview
-
-![alt text](./screenshots/1.jpg)
-![alt text](./screenshots/2.jpg)
-![alt text](./screenshots/3.jpg)
-![alt text](./screenshots/4.jpg)
+<img src="./screenshots/1.jpg" alt="drawing" width="200"/>
+<img src="./screenshots/2.jpg" alt="drawing" width="200"/>
+<img src="./screenshots/3.jpg" alt="drawing" width="200"/>
+<img src="./screenshots/4.jpg" alt="drawing" width="200"/>
 ---
 
----
 **Version1.0.0**
 
 ---
+
 ![APM](https://img.shields.io/apm/l/vim-mode)
+
 ---
+
 ## Authors
+
 - Nicholas Barkote <nicholas.kebut@student.moringaschool.com>
+
 ---
 
 ## Requirements
 
 - Android Studio
-
-
 
 # Tech Stack
 
